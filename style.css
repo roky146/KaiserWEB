@@ -1,18 +1,48 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
+/* Estilo general */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    background: #f4f5f7;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  /* Fondo dinámico */
+  .animated-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 30% 30%, #d0ebff, transparent 35%),
+                radial-gradient(circle at 70% 60%, #ffcfe3, transparent 40%),
+                radial-gradient(circle at 50% 50%, #dee2ff, transparent 30%);
+    background-size: 200% 200%;
+    animation: move 20s ease-in-out infinite;
+    z-index: -1;
+    filter: blur(60px);
+  }
+  
+  @keyframes move {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+  }
+  
   .container {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 3rem auto;
     padding: 2rem;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    background-color: #ffffffdd;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
   }
   
   header {
@@ -22,7 +52,6 @@ body {
   
   header h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.2rem;
     color: #2c3e50;
   }
   
@@ -32,12 +61,14 @@ body {
   }
   
   h2 {
-    color: #34495e;
+    margin-top: 1.5rem;
+    color: #3d3d3d;
   }
   
   ul {
-    list-style: square;
+    list-style: disc;
     padding-left: 1.5rem;
+    color: #444;
   }
   
   footer {
@@ -47,36 +78,53 @@ body {
     color: #95a5a6;
   }
   
-  /* Estilos para los botones sociales */
+  /* Botones sociales */
   .social-buttons {
     display: flex;
-    justify-content: space-around;
-    margin-top: 2rem;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
   }
   
   .social-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    color: #fff;
-    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 1.8rem;
     text-decoration: none;
-    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .social-button img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+  
+  /* Estilos por red */
+  .fb {
+    background-color: #e3f2fd;
+  }
+  
+  .gm {
+    background-color: #fdecea;
+  }
+  
+  .ws {
+    background-color: #e2fbee;
   }
   
   .social-button:hover {
-    transform: scale(1.1);
-  }
-  
-  .facebook {
-    background-color: #3b5998;
-  }
-  
-  .email {
-    background-color: #d44638;
-  }
-  
-  .whatsapp {
-    background-color: #25d366;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   }
   
